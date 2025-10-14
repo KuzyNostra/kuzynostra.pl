@@ -1,54 +1,158 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Uszanowanko</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>KuzyNostra — sklep, mech i druk 3D</title>
+  <meta name="description" content="KuzyNostra: autorskie oświetlenie i akcesoria, Leniwy Mech z fińskiego chrobotka oraz projektowanie i druk 3D do 220×220×260 mm.">
+  <meta property="og:title" content="KuzyNostra — sklep, mech i druk 3D">
+  <meta property="og:description" content="Autorskie oświetlenie, organizery, Leniwy Mech i wsparcie w druku 3D.">
+  <meta property="og:type" content="website">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='72'%3EK%3C/text%3E%3C/svg%3E">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background: linear-gradient(135deg, #f9fafb, #e5e7eb);
-      color: #1f2937;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      padding: 2rem;
+    :root{--bg:#0b0b0c;--fg:#f4f4f5;--muted:#b0b0b5;--card:#131316;--accent:#6ee7b7;--accent-2:#a78bfa;--outline:#242428;--shadow:0 10px 30px rgba(0,0,0,.35)}
+    @media (prefers-color-scheme: light){
+      :root{--bg:#ffffff;--fg:#0f1115;--muted:#545e6a;--card:#f6f7f9;--accent:#059669;--accent-2:#6d28d9;--outline:#e7e9ee;--shadow:0 10px 30px rgba(16,24,40,.08)}
     }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: #111827;
-    }
-    p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      max-width: 600px;
-    }
-    a {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background-color: #111827;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 0.5rem;
-      font-weight: 600;
-      transition: background 0.2s ease;
-    }
-    a:hover {
-      background-color: #2563eb;
-    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#111113);color:var(--fg);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;letter-spacing:.2px}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px}
+    .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:14px;border:1px solid var(--outline);background:transparent;color:var(--fg);transition:.2s;font-weight:600}
+    .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0b0b0c;border-color:transparent}
+    .hero{padding:56px 0 32px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .hero h1{font-size:40px;line-height:1.05;margin:0 0 12px}
+    .tag{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--outline);border-radius:999px;padding:6px 10px;font-size:12px;color:var(--muted)}
+    .tag .pulse{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px color-mix(in srgb,var(--accent) 25%,transparent);animation:pulse 1.8s infinite}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 25%,transparent)}70%{box-shadow:0 0 0 12px color-mix(in srgb,var(--accent) 0%,transparent)}100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 0%,transparent)}}
+    .hero-card{border:1px solid var(--outline);background:radial-gradient(1200px 400px at 80% -50%,color-mix(in srgb,var(--accent) 12%,transparent),transparent),var(--card);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+    .mini{border:1px solid var(--outline);border-radius:14px;padding:14px;background:var(--bg)}
+    .mini h4{margin:0 0 6px;font-size:15px}
+    .mini p{margin:0;color:var(--muted);font-size:13px}
+    .section{padding:28px 0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{border:1px solid var(--outline);background:var(--card);border-radius:18px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+    .card h3{margin:0;font-size:18px}
+    .card p{margin:0;color:var(--muted)}
+    .badge{display:inline-block;font-size:11px;padding:6px 10px;border-radius:999px;border:1px dashed var(--outline);color:var(--muted)}
+    .list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+    .item{border:1px solid var(--outline);border-radius:12px;padding:10px;color:var(--muted);font-size:14px}
+    .foot{margin-top:40px;border-top:1px solid var(--outline);padding:18px 0;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+    @media (max-width:980px){.hero{grid-template-columns:1fr}.cards,.list{grid-template-columns:1fr 1fr}.hero h1{font-size:34px}}
+    @media (max-width:640px){.cards,.list{grid-template-columns:1fr}.wrap{padding:22px}.hero h1{font-size:28px}}
   </style>
 </head>
 <body>
-  <h1>Uszanowanko</h1>
-  <p>Zapraszam serdecznie do odwiedzenia naszego sklepu internetowego. Są tam fajne rzeczki i w ogóle.
-     Kliknij poniżej, aby przenieść się na <strong>kuzynostra.pl</strong>.</p>
-  <a href="https://kuzynostra.pl" target="_blank" rel="noopener">Przejdź do sklepu</a>
-<hr>
-<p>Zajmujemy się też projektowaniem 3D. Jeśli potrzebujesz cudu i zmieści się on na <code>220x220x260mm3</code> to możesz na nasz liczyć - napisz na <b>sklep@kuzynostra.pl</b></p>
+  <header class="wrap nav">
+    <div class="brand"><span class="dot"></span><span>KuzyNostra</span></div>
+    <nav class="cta-row">
+      <a class="btn" href="https://sklep.kuzynostra.pl/">Sklep</a>
+      <a class="btn" href="https://mech.kuzynostra.pl/">Leniwy Mech</a>
+      <a class="btn" href="mailto:sklep@kuzynostra.pl">Kontakt</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="tag"><span class="pulse"></span><span>MECH IS NOT MEH</span></div>
+        <h1>Autorskie oświetlenie, sprytne organizery i Leniwy Mech</h1>
+        <p style="color:var(--muted);margin:10px 0 18px">Liczy się klimat. Sprawdź nasz sklep lub zerknij na chrobotkowe kompozycje, które nie wymagają podlewania ani przycinania.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://sklep.kuzynostra.pl/">Przejdź do sklepu</a>
+          <a class="btn" href="https://mech.kuzynostra.pl/">Zobacz Leniwy Mech</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="badge">Nowości i klasyki</div>
+        <div class="hero-grid">
+          <div class="mini">
+            <h4>Klosz LINEA</h4>
+            <p>Minimalistyczny detal, efekt światła i cienia</p>
+          </div>
+          <div class="mini">
+            <h4>Organizery</h4>
+            <p>Biurko, dom i porządek bez wysiłku</p>
+          </div>
+          <div class="mini">
+            <h4>Leniwy Mech</h4>
+            <p>Fiński chrobotek, zero podlewania</p>
+          </div>
+          <div class="mini">
+            <h4>Przesyłka i zwroty</h4>
+            <p>Od 200 zł na terenie PL</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cards">
+        <article class="card">
+          <div class="badge">Sklep</div>
+          <h3>Oświetlenie</h3>
+          <p>Świeże pomysły, unikalny wzór, ten sam styl</p>
+          <div class="list">
+            <div class="item">Klosze</div>
+            <div class="item">Lampy</div>
+            <div class="item">Akcesoria</div>
+          </div>
+          <a class="btn" href="https://sklep.kuzynostra.pl/kategoria/oswietlenie">Zobacz</a>
+        </article>
+        <article class="card">
+          <div class="badge">Sklep</div>
+          <h3>Organizery</h3>
+          <p>Funkcjonalne dodatki do biurka i domu</p>
+          <div class="list">
+            <div class="item">Biurko i dom</div>
+            <div class="item">Kolekcje</div>
+            <div class="item">Zestawy</div>
+          </div>
+          <a class="btn" href="https://sklep.kuzynostra.pl/kategoria/organizery">Zobacz</a>
+        </article>
+        <article class="card">
+          <div class="badge">Mech</div>
+          <h3>Leniwy Mech</h3>
+          <p>Naturalny chrobotek (Cladonia stellaris) w formie dekoracyjnej</p>
+          <div class="list">
+            <div class="item">Wersje prezentowe</div>
+            <div class="item">Różne kolory</div>
+            <div class="item">Z dyfuzorem lub bez</div>
+          </div>
+          <a class="btn" href="https://mech.kuzynostra.pl/">Sprawdź</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <article class="card">
+        <div class="badge">Usługa</div>
+        <h3>Projektowanie i druk 3D</h3>
+        <p style="margin:6px 0 14px;color:var(--muted)">Jeśli potrzebujesz cudu i zmieści się on w polu roboczym 220×220×260&nbsp;mm, odezwij się — pomożemy.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="mailto:sklep@kuzynostra.pl">Napisz: sklep@kuzynostra.pl</a>
+          <a class="btn" href="https://sklep.kuzynostra.pl/kontakt">Formularz kontaktowy</a>
+        </div>
+      </article>
+    </section>
+
+    <footer class="wrap foot">
+      <div>© <span id="y"></span> KuzyNostra</div>
+      <div class="cta-row">
+        <a class="btn" href="https://sklep.kuzynostra.pl/polityka-prywatnosci">Polityka prywatności</a>
+        <a class="btn" href="https://sklep.kuzynostra.pl/kontakt">Kontakt</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
